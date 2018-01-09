@@ -33,7 +33,35 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-    
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NombreTextBlock.FontSize" Value="12"/>
+                        <Setter Target="CorreoTextBlock.FontSize" Value="12"/>
+                    </VisualState.Setters>
+
+                </VisualState>
+                <VisualState x:Name="WideLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NombreTextBlock.FontSize" Value="20"/>
+                        <Setter Target="NombreTextBlock.FontSize" Value="20"/>
+                        
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
 
         <StackPanel Grid.Row="0" Orientation="Horizontal"
                   >
@@ -43,8 +71,12 @@
                Stretch="UniformToFill"
                    Margin="20"/>
         </StackPanel>
-        
-            <TextBlock Text="Nombre"
+
+ 
+
+        <TextBlock Name="NombreTextBlock"
+                   FontSize="20"
+                   Text="Nombre"
                    Grid.Row="1"
                    Grid.Column="0"
                    Style="{StaticResource UsuarioTextBlockStyle}"/>
@@ -56,7 +88,8 @@
                  Style="{StaticResource UsuarioTextBoxStyle}" />
        
        
-            <TextBlock Text="Correo: "
+            <TextBlock Name="CorreoTextBlock"
+                Text="Correo: "
                    Grid.Row="2"
                    Grid.Column="0"
                    Style="{StaticResource UsuarioTextBlockStyle}"/>
